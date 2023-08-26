@@ -1,0 +1,9 @@
+{
+  "name": "the_digital_cookbook",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/GowthamGajini/the_digital_cookbook.git",
+  "author": "Gowtham Nadula <gowthamnadula@gmail.com>",
+  "license": "MIT",
+  "dependencies": {}
+}

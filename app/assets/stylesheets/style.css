@@ -1,0 +1,12 @@
+#search-form {
+	display: flex;
+}
+#search-form .form-group.mr-2 {
+	margin: 0px 10px;
+	width: 33%;
+}
+
+#search-btn {
+	margin-top: 23px;
+	width: 140px;
+}

@@ -1,0 +1,39 @@
+<div class="container mt-5">
+  <%= form_tag(search_recipes_path, method: :get, class: "form-inline", id: "search-form", remote: true) do %>
+    <div class="form-group mr-2">
+      <%= label_tag(:cuisine, "Enter Cuisine") %>
+      <%= text_field_tag(:cuisine, params[:cuisine], class: "form-control", placeholder: "Eg. Asian") %>
+    </div>
+
+    <div class="form-group mr-2">
+      <%= label_tag(:ingredient, "Enter Ingredient") %>
+      <%= text_field_tag(:ingredient, params[:ingredient], class: "form-control", placeholder: "Eg. Cream") %>
+    </div>
+    <div class="form-group mr-2">
+      <%= submit_tag("Search", class: "btn btn-primary", id: "search-btn") %>
+    </div>
+  <% end %>
+</div>
+
+<div id="search-results" class="container mt-3">
+  <%= render 'search_results'%>
+</div>
+
+<script type="text/javascript">
+  $(document).on("submit", "#search-form", function(event) {
+    event.preventDefault();
+    var form = $(this);
+    $.ajax({
+      url: form.attr("action"),
+      type: form.attr("method"),
+      data: form.serialize(),
+      dataType: "script",
+      success: function(response) {
+        console.log("Search Completed");
+      },
+      error: function(xhr, status, error) {
+        console.log("Search Failed");
+      }
+  });
+});
+</script>
